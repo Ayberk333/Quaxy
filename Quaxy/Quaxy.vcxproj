@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imconfig.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imgui.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imgui_internal.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imstb_textedit.h" />
+    <ClInclude Include="..\Libraries\imgui\include\ImGui\imstb_truetype.h" />
+    <ClInclude Include="..\Libraries\mjLib\include\mjLib\Console.hpp" />
+    <ClInclude Include="..\Libraries\mjLib\include\mjLib\Logger.hpp" />
+    <ClInclude Include="..\Libraries\mjLib\include\mjLib\mjLib.hpp" />
+    <ClInclude Include="..\Libraries\mjLib\include\mjLib\Process.hpp" />
+    <ClInclude Include="..\Libraries\mjLib\include\mjLib\String.hpp" />
+    <ClInclude Include="AimViewer.hpp" />
+    <ClInclude Include="Core.hpp" />
+    <ClInclude Include="EspViewer.hpp" />
+    <ClInclude Include="Fonts.hpp" />
+    <ClInclude Include="MenuGlobal.hpp" />
+    <ClInclude Include="MenuItems.hpp" />
+    <ClInclude Include="Images.hpp" />
+    <ClInclude Include="Menu.hpp" />
+    <ClInclude Include="Memory.hpp" />
+    <ClInclude Include="Overlay.hpp" />
+    <ClInclude Include="GameSDK.hpp" />
+    <ClInclude Include="SimpleMath.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui.cpp" />
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="..\Libraries\imgui\include\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{F1FB4229-95B7-4FA8-AD27-5B31F66BA2ED}</ProjectGuid>
+    <RootNamespace>Quaxy</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\Build\$(ProjectName)\</OutDir>
+    <TargetName>Quaxy_$(ProjectName)_x64</TargetName>
+    <IncludePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath);$(SolutionDir);$(ProjectDir);$(SolutionDir)Libraries\openssl\include;$(SolutionDir)Libraries\libcurl\include;$(SolutionDir)Libraries\zlib\include;$(SolutionDir)Libraries\brotli\include;$(SolutionDir)Libraries\directx\include;$(SolutionDir)Libraries\xorstr\include;$(SolutionDir)Libraries\imgui\include;$(SolutionDir)Libraries\mjlib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir);$(ProjectDir);$(SolutionDir)Libraries\openssl\lib\x64;$(SolutionDir)Libraries\libcurl\lib\x64;$(SolutionDir)Libraries\zlib\lib\x64;$(SolutionDir)Libraries\brotli\lib\x64;$(SolutionDir)Libraries\directx\lib\x64;$(SolutionDir)Libraries\xorstr\lib\x64;$(SolutionDir)Libraries\imgui\lib\x64;$(SolutionDir)Libraries\mjlib\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AdditionalDependencies>ntdll.lib;msvcrt.lib;ws2_32.lib;wldap32.lib;crypt32.lib;advapi32.lib;normaliz.lib;wbemuuid.lib;Shcore.lib;Gdiplus.lib;winhttp.lib;dxgi.lib;wininet.lib;Ws2_32.lib;gdiplus.lib;libcrypto.lib;libssl.lib;libcurl.lib;zlib.lib;brotlicommon.lib;brotlidec.lib;brotlienc.lib;d3d11.lib;d3dx11.lib;d3dx11d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4099 /ignore:4098 /ignore:4244 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
